@@ -1,0 +1,20 @@
+version: 1
+formatters:
+  base:
+    class: logging.Formatter
+    format: "%(levelname)s: %(message)s"
+handlers:
+  info_handler:
+    class: logging.FileHandler
+    filename: stackoverflow_analytics.log
+    level: DEBUG
+    formatter: base
+  warn_handler:
+    class: logging.FileHandler
+    filename: stackoverflow_analytics.warn
+    level: WARNING
+    formatter: base
+loggers:
+  stackoverflow_analytics:
+    level: DEBUG
+    handlers: [info_handler, warn_handler]
